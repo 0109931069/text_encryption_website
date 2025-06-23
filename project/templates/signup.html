@@ -1,0 +1,76 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/signup.css'%}">
+    <title>Hide Me</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+    
+    <link rel="icon" type="image/x-icon" href="{% static '/images/favicon.ico' %}">
+</head>
+<body>
+    <section style="background-image: url('{% static 'images/img6.jpeg' %}');">
+       
+        <div class='login-box'> 
+            <form action = '/signup/' method = 'post'>
+                {% csrf_token %}
+                <h2>Sign UP</h2>
+
+                <div class = 'input-box'>
+                  
+                    <span class='icon'><ion-icon name="person"></ion-icon></span>
+                    <input type = 'text' name='username' required id = "username">
+                    <label>Username</label>
+                    <p id="username-error" style="display: none;">Username already exist</p>
+                </div>
+
+               
+                <div class = 'input-box'>
+                    <span class='icon'><ion-icon name="person-add"></ion-icon></ion-icon></span>
+                    <input type = 'text' name='firstname' required>
+                    <label>Firstname</label>    
+                
+                </div>
+
+                <div class = 'input-box'>
+                    <span class='icon'><ion-icon name="person-add"></ion-icon></ion-icon></span>
+                    <input type = 'text'  name ='lastname' required>
+                    <label>Lastname</label>    
+                </div>
+
+                <div class = 'input-box'>
+                    <span class='icon'><ion-icon name="mail"></ion-icon></span>
+                    <input type = 'email' name = 'email' required>
+                    <label>Email</label>   
+                </div>
+
+                <div class = 'input-box'>
+                    <span class='icon'><ion-icon name="lock"></ion-icon></ion-icon></span>
+                    <input type = 'password' name = 'password' required minlength = "8" id="password">
+                    <label>Password</label>  
+                </div>
+
+                <div class = 'input-box'>
+                    <span class='icon'><ion-icon name="lock"></ion-icon></ion-icon></span>
+                    <input type = 'password'   name = 'confirmPassword' required id ="confirm-password">
+                    <label>Confirm Password</label>
+                </div>
+                <p id="password-error" style="display: none;">Passwords do not match</p>
+                <button type="submit" onclick = "validateForm()" class="btn" id="submit-button">Sign Up</button>
+                
+                <div class = 'register-link'>
+                    <p>Already have an account? <a href = '/signin/'>Login</a></p>
+                </div>
+            </form>
+        </div>
+    </section>
+    <script>
+        var users = {{ users|safe }}; 
+    </script>
+    <script src="{% static 'js/valid.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/index.css'%}">
+    <title>Hide Me</title>
+    <link rel="icon" type="image/x-icon" href="{% static '/images/favicon.ico' %}">
+
+</head>
+<body>
+    <section style="background-image: url('{% static 'images/img6.jpeg' %}');">
+        <div class='login-box'>
+            <h1>Hi sir.<br>If you wanna hide all your privacy data.<br>Click on the sign up button below.</h1>
+            
+            <button type= 'submit' class='btn'><a href="/signup/">Sign Up</a></button>
+            <button type= 'submit' class='btn'><a href= '/signin/'>Sign In</a></button>
+        </div>
+        {% comment %} nomber of encrypted files {% endcomment %}
+    </section>
+
+</body>

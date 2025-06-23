@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hide Me</title>
+    <link rel="stylesheet" href="{% static 'css/encryptions.css' %}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="icon" type="image/x-icon" href="{% static '/images/favicon.ico' %}">
+   
+
+</head>
+<body>
+    <section style="background-image: url('{% static 'images/img6.jpeg' %}');">
+            
+        <button class = 'home'><a href="{% url 'index' %}"><i class='bx bxs-home'></i> Back Home</a></button>
+            {% comment %} <a href = "{% url 'about' %}"></a> {% endcomment %}
+    
+        <form>
+            <div class='box'>
+                <textarea id="plainText" rows="10" cols="70" placeholder = "Plain Text"></textarea>
+                <i class='bx bxs-chevrons-left'></i>
+                <i class='bx bxs-chevrons-right'></i>
+                <textarea id="cipherText" rows="10" cols="70" placeholder = "Cipher Text"></textarea>
+            </div>
+            <div class = 'algos'>
+                <button id="encryptBtn" class="encdec"><i class='bx bxs-lock-alt'></i> Encrypt</button>
+                <select id="algorithm">
+                    <option value="none" disabled selected hidden>Select Algorithm:</option>
+                    <option value="caesar" style="margin: 10px;">Caesar Cipher</option>
+                    <option value="vigenere">Vigenère Cipher</option>
+                    <option value="mixed-alphabet">Mixed Alphabet Cipher</option>
+                    <option value="homophonic">Homophonic Cipher</option>
+                    <option value="rail-fence">Rail Fence Cipher</option>
+                    <option value="Affine">Affine Cipher</option>
+                    <option value="columnar-transposition">Columnar Transpoition Cipher</option>
+                    <option value="play-fair">Play Fair Cipher</option>
+                    <option value="one-time">One Time Pad Cipher</option>
+                    <option value="auto-key">Auto Key Cipher</option>
+                    <!-- Add other algorithm options here -->
+                </select>
+                <button id="decryptBtn" class="encdec"><i class='bx bxs-lock-open-alt'></i> Decrypt</button>
+            </div>
+            
+        </form>
+        <div class = 'file'>
+            <input type="file" id="fileInput">
+            <button id="uploadBtn"><i class='bx bxs-cloud-upload' ></i> Upload File</button>
+            <button id="downloadBtn"><i class='bx bxs-cloud-download' ></i> Download File</button>
+        </div>
+    </section>
+    {% comment %} <script src="script.js"></script> {% endcomment %}
+    <script src="{% static 'js/encryptions.js' %}"></script>
+
+</body>
+</html>
